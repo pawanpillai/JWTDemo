@@ -10,7 +10,7 @@ This is adaptation project from the original project here: http://www.c-sharpcor
 # How to use:
 
 1. Initial call with username and password. This will generate Access Token and Refresh Token:
-Request Format:
+
 ```javascript
 HTTP POST Call to: http://localhost:7000/v1/api/auth
 
@@ -37,7 +37,6 @@ HTTP POST Call to: http://localhost:7000/v1/api/auth
 ```              
 
 2. Future calls to Token Server to generate new Refresh Token:
-Request Format:
 ```javascript
 HTTP POST Call to: http://localhost:7000/v1/api/auth
 
