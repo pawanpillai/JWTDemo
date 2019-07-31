@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="MySql.Data" Version="8.0.15" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="server\handlers\" />
+    <Folder Include="server\handlers\datahandlers\" />
+    <Folder Include="server\handlers\commonhandlers\" />
+    <Folder Include="uploads\" />
+    <Folder Include="logs\" />
+    <Folder Include="client\src\app\models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="server\api\EmptyClass.cs" />
+    <Compile Remove="server\api\sds.cs" />
+    <Compile Remove="server\handlers\datahandlers\EmptyClass.cs" />
+    <Compile Remove="server\handlers\datahandlers\MyDemo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="server\api\UserAuthenticationController.vb" />
+    <None Remove="client\src\app\services\message-modal.service.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="client\src\app\services\message-modal.service.ts" />
+  </ItemGroup>
+</Project>

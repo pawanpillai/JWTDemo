@@ -1,0 +1,24 @@
+﻿<!--Top header and Navigation Bar-->
+<header>
+
+</header>
+
+<div id="maincontent" class="container">
+	<!--This will contain all the route contents-->
+	<router-outlet style="margin-top:100px;"></router-outlet>
+</div>
+
+
+<footer class="border-top">
+
+</footer>
+
+<!--This processing screen comes for all HTTP calls-->
+<ngx-spinner bdOpacity=0.9 bdColor="#cccccc" size="large" color="#fff" type="square-jelly-box" fullScreen="true">
+	<p style="color: white;font-size: 20px;font-weight: bold;"> Processing... </p>
+</ngx-spinner>
+
+<!--This is the modal popup component for all status and error messages-->
+<app-message-modal *ngIf="showMessageModal" [messageModalInputValue]="messageModalServiceData"
+	(messageModalOutputValue)="readMessageModalOutputValueEmitted($event)">
+</app-message-modal>
