@@ -1,7 +1,7 @@
 ﻿# JWTDemo
 A sample project on how to refresh JWT token using ASP.NET Core 2.0 API.
 
-![alt text](https://github.com/pawanpillai/JWTDemo/architecture.png)
+![alt text](https://github.com/pawanpillai/JWTDemo/blob/master/architecture.png)
 
 This is adaptation project from the original project here: http://www.c-sharpcorner.com/article/handle-refresh-token-using-asp-net-core-2-0-and-json-web-token/. 
 
