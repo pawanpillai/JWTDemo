@@ -1,4 +1,4 @@
-﻿# JWTDemo
+# JWTDemo
 A sample project on how to refresh JWT token using ASP.NET Core 2.0 API.
 
 ![alt text](https://github.com/pawanpillai/JWTDemo/blob/master/architecture.png)
@@ -9,7 +9,7 @@ This is an adaptation from original project here: http://www.c-sharpcorner.com/a
 
 # How to use:
 
-1. Initial call with username and password. This will generate Access Token and Refresh Token:
+1. Initial call with username and password. This will generate Access Token (short lived) and Refresh Token (long lived and saved in DB):
 
 ```javascript
 HTTP POST Call to: http://localhost:7000/v1/api/auth
@@ -36,7 +36,7 @@ HTTP POST Call to: http://localhost:7000/v1/api/auth
     }
 ```              
 
-2. Future calls to Token Server to generate new Refresh Token:
+2. Future calls to Token Server to generate new "Access Token":
 ```javascript
 HTTP POST Call to: http://localhost:7000/v1/api/auth
 
@@ -71,4 +71,7 @@ public class SomeController : Controller, ISomeController
 }
 ```
 
-4. From client end, you have to send refresh_token before each HTTP call. Best way is to implemnent HTTP Interceptor. See /client/src/app/common/http-error-filter.ts and client/src/app/common/http-filter.ts. These are registered in app.module.ts.
+[Authorize] will validate the Access Token and if its invalid, then API will return 410 Unauthorized Access. 
+
+4. On the client end, if we get 401 Unauthorized Access error, then we will intercept it and send refresh_token to generate a new Access Token
+Best way is to implemnent HTTP Interceptor. See /client/src/app/common/http-error-filter.ts and client/src/app/common/http-filter.ts. These are registered in app.module.ts.
